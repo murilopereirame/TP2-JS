@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="js\doStuffs.js"></script>
     <title>TP2-JS</title>
   </head>
@@ -15,13 +15,24 @@
       </div>
       <div class="tasks">
         <div class="column" id="toDo">
-
+          <div class="categoria">
+            A fazer
+          </div>
         </div>
         <div class="column" id="doing">
-
+          <div class="categoria">
+            Em progresso
+          </div>
+        </div>
+        <div class="column" id="review">
+          <div class="categoria">
+            Em revisão
+          </div>
         </div>
         <div class="column" id="complete">
-          
+          <div class="categoria">
+            Completo
+          </div>
         </div>
       </div>
     </div>
@@ -31,12 +42,25 @@
       </div>
       <div class="newTaskContent">
         <span>Nome da tarefa:</span>
-        <br>
-        <input type="text" id="taskName" value="" placeholder="Nome da tarefa" />
-        <br>
+        <br />
+        <input
+          type="text"
+          id="taskName"
+          value=""
+          placeholder="Nome da tarefa"
+        />
+        <br />
         <span>Descrição da tarefa:</span>
-        <br>
-        <textarea type="text" id="taskDesc" style="width: 100%" cols="40" rows="5" value="" placeholder="Nome da tarefa"></textarea>
+        <br />
+        <textarea
+          type="text"
+          id="taskDesc"
+          style="width: 100%"
+          cols="40"
+          rows="5"
+          value=""
+          placeholder="Nome da tarefa"
+        ></textarea>
       </div>
     </div>
   </body>
