@@ -17,7 +17,7 @@ function moveme(element) {
 }
 
 function newTask() {
-    document.getElementById("newTaskContainer").style.display = "block";;
+    document.getElementById("newTaskContainer").style.display = "block";
     document.getElementById("content").style.filter = "blur(2px)";
 }
 

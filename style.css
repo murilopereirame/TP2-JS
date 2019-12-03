@@ -1,54 +1,83 @@
-body {
-  width: 100%;
+body {  
   height: 100%;
+  background-color: #2E294E;
 }
 .tasks {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  height: 100%;
+  margin-top: 7vh;
 }
 .column {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
-  border: 2px solid black;
-  border-radius: 5%;
   margin: 2px;
   padding: 10px;
-  height: 50vh;
 }
 .tarefa {
-  overflow: scroll;
+  color: #fff;
+  overflow-y : auto;
+  border: 2px solid black;
+  height: 80vh;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .categoria {
+  font-family: 'Lato', sans-serif;
   color: white;
-  background-color: #6b6b6b;
+  background-color: #1B998B;
   text-align: center;
+  border: 2px solid #1B998B;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+}
+.categoriaModal {
+  font-family: 'Lato', sans-serif;
+  color: white;
+  background-color: #052F5F;
+  text-align: center;
+  border: 2px solid #052F5F;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .main {
   width: 100%;
   height: 100%;
-  background-color: #f6f0e4;
+  background-color: #2E294E;
 }
 .newTask {
   margin-right: 2%;
+  margin-top: 1vh;
   position: absolute;
   right: 0;
+  border-radius: 5px;
 }
 .header {
-  background-color: #3fbfc0;
+  position: fixed;
+  height: 40px;
+  background-color: #1B998B;
   width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 80px;
 }
 .modalNewTask {
-  width: 25%;
-  height: 25%;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  width: 27vw;
+  height: 25vh;
   display: none;
   left: 37.5%;
   top: 20%;
   position: absolute;
 }
 .newTaskContent {
-  padding-top: 5%;
+  padding: 5%;
+  background-color: #E16036;
 }

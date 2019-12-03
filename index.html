@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="js\doStuffs.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />    
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <title>TP2-JS</title>
   </head>
   <body>
@@ -18,7 +19,9 @@
           <div class="categoria">
             A fazer
           </div>
-          <div class="tarefa" id="toDo"></div>
+          <div class="tarefa" id="toDo">
+
+          </div>
         </div>
         <div class="column">
           <div class="categoria">
@@ -41,9 +44,9 @@
       </div>
     </div>
     <div class="modalNewTask" id="newTaskContainer">
-      <div class="header">
-        <span>Nova tarefa</span>
-      </div>
+      <div class="categoriaModal">
+          Nova tarefa
+        </div>
       <div class="newTaskContent">
         <span>Nome da tarefa:</span>
         <br />
@@ -67,5 +70,6 @@
         ></textarea>
       </div>
     </div>
+    <script src="js\doStuffs.js"></script>
   </body>
 </html>
