@@ -17,10 +17,15 @@ body {
   border-radius: 5%;
   margin: 2px;
   padding: 10px;
+  height: 50vh;
+}
+.tarefa {
+  overflow: scroll;
 }
 .categoria {
   color: white;
   background-color: #6b6b6b;
+  text-align: center;
 }
 .main {
   width: 100%;
