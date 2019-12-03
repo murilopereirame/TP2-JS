@@ -13,8 +13,34 @@ function moveme(element) {
 }
 
 function newTask() {
-    document.getElementById("newTaskContainer").style.left = "37.5%";
-    document.getElementById("newTaskContainer").style.top = "20%";
-    document.getElementById("newTaskContainer").style.display = "block";
-    document.getElementById("newTaskContainer").style.position = "absolute";
+    document.getElementById("newTaskContainer").style.display = "block";;
+    document.getElementById("content").style.filter = "blur(8px)";
 }
+
+document.addEventListener ('keydown', (event) => {
+    const keyName = event.keyCode;
+    console.log(keyName);
+    if(keyName == 13 && event.ctrlKey) {
+        if(document.getElementById("newTaskContainer").style.display == "block") {
+            let node = document.createElement('div');
+            let taskName = document.getElementById("taskName").value;
+            let taskDesc = document.getElementById("taskDesc").value;
+            node.className = "task"
+            node.innerHTML = 
+            "<span class=\"taskName\">"+taskName+"</span>" +
+            "<br>" +
+            "<span class=\"taskDesc\">"+taskDesc+"</span>";
+            document.getElementById("toDo").appendChild(node);
+            document.getElementById("taskName").value = "";
+            document.getElementById("taskDesc").value = "";
+        }
+    } else if(keyName == 27) {
+        if(document.getElementById("newTaskContainer").style.display == "block") {
+            document.getElementById("newTaskContainer").style.display = "none";
+            document.getElementById("content").style.filter = "";
+            document.getElementById("taskName").value = "";
+            document.getElementById("taskDesc").value = "";
+        }
+    }
+
+});
