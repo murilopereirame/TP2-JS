@@ -30,6 +30,7 @@ document.addEventListener ('keydown', (event) => {
             "<span class=\"taskName\">"+taskName+"</span>" +
             "<br>" +
             "<span class=\"taskDesc\">"+taskDesc+"</span>";
+            node.onclick = function() { moveme(node); };
             document.getElementById("toDo").appendChild(node);
             document.getElementById("taskName").value = "";
             document.getElementById("taskDesc").value = "";
