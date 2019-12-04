@@ -11,6 +11,9 @@ __Paleta de cores__
 - ![#800080](https://placehold.it/15/800080/000000?text=+) `#800080 -> Review`
 - ![#00FFFF](https://placehold.it/15/00FFFF/000000?text=+) `#00FFFF -> Complete`
 
+__Live demo__
+>[GitHub Host](https://murilopereirame.github.io/TP2-JS/)
+
 __Primeira uso__
 ![Primeiro uso](/fu.png)
 
