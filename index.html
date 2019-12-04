@@ -7,9 +7,12 @@
     <meta name="description" content="Gerenciador de tarefas simples" />
     <meta name="keywords" content="Task manager, HTML, CSS, template" />
     <meta name="author" content="Murilo Pereira & Gabriel Rocha" />
-    <link rel="stylesheet" type="text/css" href="style.css" />    
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
     <title>Gerenciador de Tarefas v1.0</title>
   </head>
   <body onload="loadTasks()">
@@ -29,9 +32,7 @@
           <div class="categoria">
             A fazer
           </div>
-          <div class="tarefa" id="toDo">
-
-          </div>
+          <div class="tarefa" id="toDo"></div>
         </div>
         <div class="column">
           <div class="categoria">
@@ -55,8 +56,8 @@
     </div>
     <div class="modalNewTask" id="newTaskContainer">
       <div class="categoriaModal">
-          Nova tarefa
-        </div>
+        Nova tarefa
+      </div>
       <div class="newTaskContent">
         <span>Nome da tarefa:</span>
         <br />
@@ -81,40 +82,43 @@
       </div>
     </div>
     <div class="modalHelp" id="modalHelper">
-        <div class="categoriaModal">
-            Ajuda
-          </div>
-        <div class="newTaskContent">
-          <span>Comandos disponíveis: </span><br>
-          <span>Alt + H --> Exibe janela de ajuda</span><br>
-          <span>Alt + A --> Exibe janela de sobre</span><br>
-          <span>Alt + N --> Exibe janela de nova tarefa</span><br>
-          <br>
-          <span>Markdown disponíveis: </span><br>
-          <span>[*]text[/*] --> <b>text</b></span><br>
-          <span>[_]text[/_] --> <u>text</u></span><br>
-          <span>[~]text[/~] --> <i>text</i></span><br>          
-          <span>text[NL] --> Nova linha</span><br>          
-        </div>
+      <div class="categoriaModal">
+        Ajuda
+      </div>
+      <div class="newTaskContent">
+        <span>Comandos disponíveis: </span><br />
+        <span>Alt + H --> Exibe janela de ajuda</span><br />
+        <span>Alt + A --> Exibe janela de sobre</span><br />
+        <span>Alt + N --> Exibe janela de nova tarefa</span><br />
+        <br />
+        <span>Markdown disponíveis: </span><br />
+        <span>[*]text[/*] --> <b>text</b></span
+        ><br />
+        <span>[_]text[/_] --> <u>text</u></span
+        ><br />
+        <span>[~]text[/~] --> <i>text</i></span
+        ><br />
+        <span>text[NL] --> Nova linha</span><br />
+      </div>
     </div>
     <div class="modalAbout" id="modalAbout">
-        <div class="categoriaModal">
-            Sobre
-          </div>
-        <div class="newTaskContent">
-          <span>Gerenciador de Tarefas v1.0</span><br>
-          <span>
-            <ul style="padding-left: 5%;"> 
-              <li>Murilo Rocha Pereira</li>
-              <li>Gabriel Rocha</li>
-            </ul>
-          </span>
-          <br>          
-          <br>
-          <span><b>Desenvolvido para:</b> </span><br>
-          <span>Disciplina de Web Desenvolvimento com JavaScript</span><br>
-          <span><b>UNESP</b> - Faculdade de Ciências e Tecnologia</span>
-        </div>
+      <div class="categoriaModal">
+        Sobre
+      </div>
+      <div class="newTaskContent">
+        <span>Gerenciador de Tarefas v1.0</span><br />
+        <span>
+          <ul style="padding-left: 5%;">
+            <li>Murilo Rocha Pereira</li>
+            <li>Gabriel Rocha</li>
+          </ul>
+        </span>
+        <br />
+        <br />
+        <span><b>Desenvolvido para:</b> </span><br />
+        <span>Disciplina de Web Desenvolvimento com JavaScript</span><br />
+        <span><b>UNESP</b> - Faculdade de Ciências e Tecnologia</span>
+      </div>
     </div>
     <script src="js\doStuffs.js"></script>
   </body>

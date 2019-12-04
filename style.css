@@ -56,18 +56,28 @@ body {
 }
 .newTask {
   margin-right: 2%;
-  margin-top: 1vh;
   position: absolute;
   right: 0;
+  border: 1px solid white;
   border-radius: 5px;
+  cursor: pointer;
+  background-color: #1b998b;
+  color: white;
+  padding: 0.2%;
 }
 .header {
-  display: flex;
+  display: block;
   flex-direction: row;
   height: 40px;
   background-color: #1b998b;
   width: 100%;
   text-align: center;
+  padding: 1%;
+}
+.headerTitle {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  color: white;
 }
 .modalNewTask {
   color: #fff;
@@ -111,30 +121,39 @@ body {
 .ptodo {
   width: 0%;
   background-color: green;
+  -webkit-transition: width 2s;
+  transition: width 2s;
   height: 10px;
 }
 .pdoing {
   width: 0%;
   background-color: red;
+  -webkit-transition: width 2s;
+  transition: width 2s;
   height: 10px;
 }
 .preview {
   width: 0%;
   background-color: purple;
+  -webkit-transition: width 2s;
+  transition: width 2s;
   height: 10px;
 }
 .pdone {
   width: 0%;
   background-color: cyan;
+  -webkit-transition: width 2s;
+  transition: width 2s;
   height: 10px;
 }
 .taskHolder {
   display: flex;
   flex-direction: column;
-  margin: 5%;  
+  margin: 5%;
   border: 1px solid white;
   border-radius: 5px;
   font-family: "Lato", sans-serif;
+  cursor: pointer;
 }
 .taskName {
   padding-left: 5%;
