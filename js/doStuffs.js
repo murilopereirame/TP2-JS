@@ -68,8 +68,7 @@ function loadTasks() {
     }
     recalculate();
 
-    if(firstTime == 0) {
-        console.log("dsadasd");
+    if(firstTime == 0) {        
         document.getElementById("content").style.filter = "blur(2px)";
         if (document.getElementById("newTaskContainer").style.display == "block") {
             modalClose();
@@ -79,7 +78,8 @@ function loadTasks() {
             document.getElementById("modalHelper").style.display = "block";
         }
 
-        localStorage.setItem("first", '1');        
+        localStorage.setItem("first", '1');  
+        document.getElementById("content").style.filter = "blur(2px)";      
     }
 }
 
