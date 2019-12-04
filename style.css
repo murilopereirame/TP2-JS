@@ -12,7 +12,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   height: 100%;
-  margin-top: 7vh;
 }
 .column {
   display: flex;
@@ -26,7 +25,7 @@ body {
   color: #fff;
   overflow-y: auto;
   border: 2px solid black;
-  height: 50vh;
+  height: 85vh;
   width: 100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -67,7 +66,6 @@ body {
   height: 40px;
   background-color: #1b998b;
   width: 100%;
-  margin-bottom: 80px;
 }
 .modalNewTask {
   color: #fff;
@@ -82,4 +80,48 @@ body {
 .newTaskContent {
   padding: 5%;
   background-color: #e16036;
+}
+.progress {
+  height: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.ptodo {
+  width: 0%;
+  background-color: green;
+  height: 10px;
+}
+.pdoing {
+  width: 0%;
+  background-color: red;
+  height: 10px;
+}
+.preview {
+  width: 0%;
+  background-color: purple;
+  height: 10px;
+}
+.pdone {
+  width: 0%;
+  background-color: cyan;
+  height: 10px;
+}
+.taskHolder {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;  
+  border: 1px solid white;
+  border-radius: 5px;
+  font-family: "Lato", sans-serif;
+}
+.taskName {
+  padding-left: 5%;
+  padding-top: 2%;
+  padding-right: 5%;
+  font-weight: bold;
+}
+.taskDesc {
+  padding-left: 5%;
+  padding-bottom: 2%;
+  padding-right: 5%;
 }

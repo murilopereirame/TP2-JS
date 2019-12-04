@@ -9,10 +9,16 @@
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <title>TP2-JS</title>
   </head>
-  <body>
+  <body onload="recalculate()">
     <div class="main" id="content">
       <div class="header">
         <button class="newTask" onclick="newTask()">Nova tarefa</button>
+      </div>
+      <div class="progress">
+        <div class="ptodo" id="ptodo"></div>
+        <div class="pdoing" id="pdoing"></div>
+        <div class="preview" id="preview"></div>
+        <div class="pdone" id="pdone"></div>
       </div>
       <div class="tasks">
         <div class="column">
