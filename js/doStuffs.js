@@ -147,8 +147,8 @@ function newTask() {
 }
 
 document.addEventListener('keydown', (event) => {
-    const keyName = event.keyCode;
-    if (keyName == 13 && event.altKey) {
+    const keyName = event.key;
+    if (keyName == "Enter" && event.altKey) {
         if (document.getElementById("newTaskContainer").style.display == "block" ) {            
             let taskName = document.getElementById("taskName").value;
             let taskDesc = document.getElementById("taskDesc").value;
@@ -204,7 +204,7 @@ document.addEventListener('keydown', (event) => {
             document.getElementById("taskDesc").value = "";  
             modalClose();          
         }
-    } else if (keyName == 27) {
+    } else if (keyName == "Escape") {
         if (document.getElementById("newTaskContainer").style.display == "block") {
             modalClose();
         }
@@ -216,7 +216,9 @@ document.addEventListener('keydown', (event) => {
         if (document.getElementById("modalAbout").style.display == "block") {
             document.getElementById("modalAbout").style.display = "none";
         }
-    } else if (keyName == 72 && event.altKey) {   
+
+        document.getElementById("content").style.filter = "";
+    } else if ((keyName == "H" || keyName == "h") && event.altKey) {   
         if (document.getElementById("newTaskContainer").style.display == "block") {
             modalClose();
         }
@@ -228,7 +230,9 @@ document.addEventListener('keydown', (event) => {
         if (document.getElementById("modalAbout").style.display == "block") {
             document.getElementById("modalAbout").style.display = "none";
         }
-    } else if (keyName == 78 && event.altKey || keyName == 110 && event.altKey) {
+
+        document.getElementById("content").style.filter = "blur(2px)";
+    } else if ((keyName == "N" || keyName == "n") && event.altKey) {
         if (document.getElementById("newTaskContainer").style.display == "none" || document.getElementById("newTaskContainer").style.display == "") {
             document.getElementById("newTaskContainer").style.display = "block";
         }
@@ -240,7 +244,9 @@ document.addEventListener('keydown', (event) => {
         if (document.getElementById("modalAbout").style.display == "block") {
             document.getElementById("modalAbout").style.display = "none";
         }
-    } else if (keyName == 65 && event.altKey || keyName == 97 && event.altKey) {
+
+        document.getElementById("content").style.filter = "blur(2px)";
+    } else if ((keyName == "A" || keyName == "a") && event.altKey) {
         if (document.getElementById("modalAbout").style.display == "none" || document.getElementById("modalAbout").style.display == "") {
             document.getElementById("modalAbout").style.display = "block";
         }
@@ -252,6 +258,8 @@ document.addEventListener('keydown', (event) => {
         if(document.getElementById("newTaskContainer").style.display == "block") {
             document.getElementById("newTaskContainer").style.display = "none";
         }
+
+        document.getElementById("content").style.filter = "blur(2px)";
     }
 
 
