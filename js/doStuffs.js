@@ -6,18 +6,83 @@ let todo = 0;
 let review = 0;
 let done = 0;
 let id = 0;
+let firstTime = 0;
 
 function adicionarTarefa(nome, desc) {
     id++;
     let tarefa = new Tarefa(id, nome, desc);
     tarefas.push(tarefa);
-    todo++;        
+    todo++;     
+    localStorage.setItem("tarefas", JSON.stringify(tarefas)); 
     return id;
+}
+
+function loadTasks() {
+    if(localStorage.getItem("first") != null)
+        firstTime = localStorage.getItem("first");
+    if(localStorage.getItem("tarefas") != null)
+        tarefas = JSON.parse(localStorage.getItem("tarefas") || "[]");
+    for(let i = 0; i < tarefas.length; i++) {
+        id = i + 1; 
+        tarefas[i].id = id; 
+        
+        let node = document.createElement('div');
+        let spanTN = document.createElement('span');
+        let spanTC = document.createElement('span');
+        let holder = document.createElement('div');
+        
+        node.className = "task"            
+        holder.className = "taskHolder";
+        holder.id = "T" + id;            
+        spanTN.onclick = function () { moveme(node); };
+        spanTN.className = "taskName";
+        spanTN.innerHTML = tarefas[i].nome;
+        spanTC.className = "taskDesc";
+        spanTC.innerHTML = tarefas[i].desc.replace("  ", "<br>");
+
+        holder.appendChild(spanTN);
+        holder.appendChild(spanTC);
+
+        node.appendChild(holder);
+
+        document.getElementById("taskName").value = "";
+        document.getElementById("taskDesc").value = ""; 
+
+        if(tarefas[i].status == 1) {
+            todo++;
+            document.getElementById("toDo").appendChild(node);
+        }
+        else if(tarefas[i].status == 2) {
+            doing++;
+            document.getElementById("doing").appendChild(node);
+        }
+        else if(tarefas[i].status == 3) {
+            review++;
+            document.getElementById("review").appendChild(node);
+        }
+        else if(tarefas[i].status == 4) {
+            document.getElementById("complete").appendChild(node);
+            done++;
+        }
+        total = i+1;               
+    }
+    recalculate();
+
+    if(firstTime == 0) {
+        if (document.getElementById("newTaskContainer").style.display == "block") {
+            modalClose();
+        }
+
+        if(document.getElementById("modalHelper").style.display == "none" || document.getElementById("modalHelper").style.display == "") {
+            document.getElementById("modalHelper").style.display = "block";
+        }
+
+        localStorage.setItem("first", '1');
+    }
 }
 
 function advance(id) {
     for(let i = 0; tarefas.length; i++) {
-        console.log(id);
         if(tarefas[i].id == id) {
             if(tarefas[i].status == 1) {
                 doing++;
@@ -30,7 +95,8 @@ function advance(id) {
                 done++;
             }
 
-            tarefas[i].status += 1; 
+            if(tarefas[i].status < 5)
+                tarefas[i].status += 1; 
             return  tarefas[i];
         }
     }
@@ -55,7 +121,7 @@ function moveme(element) {
         document.getElementById("complete").appendChild(element);
         advance(id);
     }
-
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
     recalculate();
 
 }
@@ -82,22 +148,57 @@ function newTask() {
 
 document.addEventListener('keydown', (event) => {
     const keyName = event.keyCode;
-    console.log(keyName);
     if (keyName == 13 && event.altKey) {
-        if (document.getElementById("newTaskContainer").style.display == "block") {
-            let node = document.createElement('div');
+        if (document.getElementById("newTaskContainer").style.display == "block" ) {            
             let taskName = document.getElementById("taskName").value;
             let taskDesc = document.getElementById("taskDesc").value;
+
+            if(taskName == "" || taskDesc == "")
+                return;
+            
+            //Crossorigin aqui não hehe
+            taskDesc = taskDesc.replace(/<[^>]*>?/gm, '');    
+
+            taskDesc = taskDesc.replace("[NL]", "<br>");
+            taskDesc = taskDesc.replace("[*]", "<b>");
+            taskDesc = taskDesc.replace("[/*]", "</b>");
+            taskDesc = taskDesc.replace("[_]", "<u>");
+            taskDesc = taskDesc.replace("[/_]", "</u>");
+            taskDesc = taskDesc.replace("[~]", "</i>");
+            taskDesc = taskDesc.replace("[/~]", "</i>");
+
+            //Crossorigin aqui não hehe
+            taskName = taskDesc.replace(/<[^>]*>?/gm, '');
+
+            taskName = taskName.replace("[NL]", "<br>");
+            taskName = taskName.replace("[*]", "<b>");
+            taskName = taskName.replace("[/*]", "</b>");
+            taskName = taskName.replace("[_]", "<u>");
+            taskName = taskName.replace("[/_]", "</u>");
+            taskName = taskName.replace("[~]", "</i>");
+            taskName = taskName.replace("[/~]", "</i>");
+
             let id = adicionarTarefa(taskName, taskDesc);
             recalculate();
-            node.className = "task"
-            node.innerHTML =
-                "<div class=\"taskHolder\" id=\"T"+id+"\">" +
-                "<span class=\"taskName\">" + taskName + "</span>" +
+            let node = document.createElement('div');
+            let spanTN = document.createElement('span');
+            let spanTC = document.createElement('span');
+            let holder = document.createElement('div');
+            
+            node.className = "task"            
+            holder.className = "taskHolder";
+            holder.id = "T" + id;            
+            spanTN.onclick = function () { moveme(node); };
+            spanTN.className = "taskName";
+            spanTN.innerHTML = taskName;
+            spanTC.className = "taskDesc";
+            spanTC.innerHTML = taskDesc;
 
-                "<span class=\"taskDesc\">" + taskDesc + "</span>"+
-                "</div>";
-            node.onclick = function () { moveme(node); };
+            holder.appendChild(spanTN);
+            holder.appendChild(spanTC);
+
+            node.appendChild(holder);
+                       
             document.getElementById("toDo").appendChild(node);
             document.getElementById("taskName").value = "";
             document.getElementById("taskDesc").value = "";  
@@ -107,7 +208,52 @@ document.addEventListener('keydown', (event) => {
         if (document.getElementById("newTaskContainer").style.display == "block") {
             modalClose();
         }
+        
+        if(document.getElementById("modalHelper").style.display == "block") {
+            document.getElementById("modalHelper").style.display = "none";
+        }
+
+        if (document.getElementById("modalAbout").style.display == "block") {
+            document.getElementById("modalAbout").style.display = "none";
+        }
+    } else if (keyName == 72 && event.altKey) {   
+        if (document.getElementById("newTaskContainer").style.display == "block") {
+            modalClose();
+        }
+
+        if(document.getElementById("modalHelper").style.display == "none" || document.getElementById("modalHelper").style.display == "") {
+            document.getElementById("modalHelper").style.display = "block";
+        }
+
+        if (document.getElementById("modalAbout").style.display == "block") {
+            document.getElementById("modalAbout").style.display = "none";
+        }
+    } else if (keyName == 78 && event.altKey || keyName == 110 && event.altKey) {
+        if (document.getElementById("newTaskContainer").style.display == "none" || document.getElementById("newTaskContainer").style.display == "") {
+            document.getElementById("newTaskContainer").style.display = "block";
+        }
+
+        if(document.getElementById("modalHelper").style.display == "block") {
+            document.getElementById("modalHelper").style.display = "none";
+        }
+
+        if (document.getElementById("modalAbout").style.display == "block") {
+            document.getElementById("modalAbout").style.display = "none";
+        }
+    } else if (keyName == 65 && event.altKey || keyName == 97 && event.altKey) {
+        if (document.getElementById("modalAbout").style.display == "none" || document.getElementById("modalAbout").style.display == "") {
+            document.getElementById("modalAbout").style.display = "block";
+        }
+
+        if(document.getElementById("modalHelper").style.display == "block") {
+            document.getElementById("modalHelper").style.display = "none";
+        }
+
+        if(document.getElementById("newTaskContainer").style.display == "block") {
+            document.getElementById("newTaskContainer").style.display = "none";
+        }
     }
+
 
 });
 

@@ -63,11 +63,33 @@ body {
 }
 .header {
   display: flex;
+  flex-direction: row;
   height: 40px;
   background-color: #1b998b;
   width: 100%;
+  text-align: center;
 }
 .modalNewTask {
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  width: 27vw;
+  height: 25vh;
+  display: none;
+  left: 37.5%;
+  top: 20%;
+  position: absolute;
+}
+.modalHelp {
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  width: 27vw;
+  height: 25vh;
+  display: none;
+  left: 37.5%;
+  top: 20%;
+  position: absolute;
+}
+.modalAbout {
   color: #fff;
   font-family: "Lato", sans-serif;
   width: 27vw;
