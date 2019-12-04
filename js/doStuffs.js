@@ -69,6 +69,8 @@ function loadTasks() {
     recalculate();
 
     if(firstTime == 0) {
+        console.log("dsadasd");
+        document.getElementById("content").style.filter = "blur(2px)";
         if (document.getElementById("newTaskContainer").style.display == "block") {
             modalClose();
         }
@@ -77,7 +79,7 @@ function loadTasks() {
             document.getElementById("modalHelper").style.display = "block";
         }
 
-        localStorage.setItem("first", '1');
+        localStorage.setItem("first", '1');        
     }
 }
 
@@ -168,7 +170,7 @@ document.addEventListener('keydown', (event) => {
             taskDesc = taskDesc.replace("[/~]", "</i>");
 
             //Crossorigin aqui não hehe
-            taskName = taskDesc.replace(/<[^>]*>?/gm, '');
+            taskName = taskName.replace(/<[^>]*>?/gm, '');
 
             taskName = taskName.replace("[NL]", "<br>");
             taskName = taskName.replace("[*]", "<b>");
